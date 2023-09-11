@@ -261,11 +261,11 @@ const updatePassword = asyncHandler(async (req, res) => {
 const forgotPasswordToken = asyncHandler(async (req, res) => {
     const { email } = req.body
     const user = await users.findOne({ email })
-    if (!user) throw new Error("User not found with htis email")
+    if (!user) throw new Error("User not found with this email")
     try {
         const token = await user.createPasswordResetToken()
         await user.save()
-        const resetURL = `Please follow this link to Reset your Password. The link is valid till 10 min from now. <a href='http://localhost:3000/reset-password/${token}'>Click Here</>`
+        const resetURL = `Please follow this link to Reset your Password. The link is valid till 10 min from now. <a href='https://bliss-ecom.netlify.app/reset-password/${token}'>Click Here</>`
         const data = {
             to: email,
             text: "Hey User",
