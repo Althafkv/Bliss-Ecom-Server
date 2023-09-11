@@ -20,10 +20,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 dbConnect()
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
+app.addHeader("Access-Control-Allow-Origin", "*");
 
 app.use(morgan("dev"))
 app.use(cors())
@@ -47,4 +44,8 @@ app.use(errorHandler)
 
 app.listen(PORT, () => {
     console.log(`Server is running at PORT ${PORT}`);
+})
+
+app.get("/", (req,res) => {
+    res.send("Server Running")
 })
