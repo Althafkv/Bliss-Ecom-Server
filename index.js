@@ -19,9 +19,9 @@ const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const cors = require('cors')
 const corsOptions ={
-    origin:'*', 
-    credentials:true, //access-control-allow-credentials:true
-     optionSuccessStatus:200,
+    origin:'https://bliss-admin-panel.netlify.app', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
 }
 dbConnect()
 
