@@ -20,6 +20,11 @@ const morgan = require('morgan')
 const cors = require('cors')
 dbConnect()
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 app.use(morgan("dev"))
 app.use(cors())
 app.use(bodyParser.json())
