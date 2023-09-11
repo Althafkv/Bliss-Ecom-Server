@@ -4,10 +4,6 @@ const { cloudinaryUploadImg, cloudinaryDeleteImg } = require('../utils/cloudinar
 
 // Upload Images
 const uploadImages = asyncHandler(async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Max-Age", "1800");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
     try {
         const uploader = (path) => cloudinaryUploadImg(path, "images")
         const urls = []
