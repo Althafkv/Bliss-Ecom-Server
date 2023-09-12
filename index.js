@@ -23,8 +23,6 @@ dbConnect()
 app.use(morgan("dev"))
 app.use(cors({
     origin:'http://localhost:3000', 
-    credentials:true,
-    optionSuccessStatus:200
 }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
