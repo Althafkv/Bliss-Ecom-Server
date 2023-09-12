@@ -21,10 +21,7 @@ const cors = require('cors')
 dbConnect()
 
 app.use(morgan("dev"))
-app.use(cors({
-    origin: "*",
-    methods: ["GET", "POST"]
-}))
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -43,10 +40,10 @@ app.use('/api/upload', uploadRouter)
 app.use(notFound)
 app.use(errorHandler)
 
-app.get("/", (req,res) => {
-    res.setHeader("Access-Control-Allow-Credentials","true")
-    res.send("Server Running...")
-})
+// app.get("/", (req,res) => {
+//     res.setHeader("Access-Control-Allow-Credentials","true")
+//     res.send("Server Running...")
+// })
 
 app.listen(PORT, () => {
     console.log(`Server is running at PORT ${PORT}`);
