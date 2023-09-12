@@ -22,7 +22,7 @@ dbConnect()
 
 app.use(morgan("dev"))
 app.use(cors({
-    origin: "*",
+    origin: "https://sparkling-boba-5ddf49.netlify.app",
     credentials: true,
 }))
 app.use(bodyParser.json())
