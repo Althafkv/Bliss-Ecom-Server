@@ -11,6 +11,7 @@
   },
   "keywords": [],
   "author": "",
+  "proxy": "https://bliss-ecom-server.onrender.com",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
