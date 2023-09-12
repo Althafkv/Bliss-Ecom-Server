@@ -23,7 +23,6 @@ dbConnect()
 app.use(morgan("dev"))
 app.use(cors({
     origin: "*",
-    credentials: true,
 }))
 
 app.use(bodyParser.json())
