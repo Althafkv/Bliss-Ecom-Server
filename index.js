@@ -20,6 +20,15 @@ const morgan = require('morgan')
 const cors = require('cors')
 dbConnect()
 
+app.use((req,res,next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "*")
+    res.header("Access-Control-Allow-Credentials", true)
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE")
+
+    next()
+})
+
 app.use(cors({
     allowedHeaders: "*",
     allowMethods: "*",
