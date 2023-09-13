@@ -20,24 +20,31 @@ const morgan = require('morgan')
 const cors = require('cors')
 dbConnect()
 
-// app.use((req,res,next) => {
-//     res.header("Access-Control-Allow-Origin", "*")
-//     res.header("Access-Control-Allow-Headers", "*")
-//     res.header("Access-Control-Allow-Credentials", true)
-//     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE")
-
-//     next()
-// })
-
-// app.use(cors({
-//     allowedHeaders: "*",
-//     allowMethods: "*",
-//     origin: "*",
-// }))
-
 app.use(morgan("dev"))
-app.use(cors())
-app.options("*", cors())
+app.use(cors({
+    origin: ['https://bliss-ecom-server.onrender.com', 'http://localhost:3000'],
+    allowedHeaders: [
+      'X-Requested-With',
+      'X-HTTP-Method-Override',
+      'Content-Type',
+      'Accept',
+      'Observe',
+      'authorization ',
+    ],
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    credentials: true,
+}))
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', [
+      'https://bliss-ecom-server.onrender.com',
+      'http://localhost:3000',
+    ]);
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+    next();
+  });
+  
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
