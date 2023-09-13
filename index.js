@@ -23,24 +23,24 @@ dbConnect()
 app.use(morgan("dev"))
 app.use(cors({
     origin: "*",
-    allowedHeaders: [
-      'X-Requested-With',
-      'X-HTTP-Method-Override',
-      'Content-Type',
-      'Accept',
-      'Observe',
-      'authorization ',
-    ],
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    credentials: true,
+    // allowedHeaders: [
+    //   'X-Requested-With',
+    //   'X-HTTP-Method-Override',
+    //   'Content-Type',
+    //   'Accept',
+    //   'Observe',
+    //   'authorization ',
+    // ],
+    // methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    // credentials: true,
 }))
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', "*");
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', "*");
+//     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+//     next();
+//   });
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
