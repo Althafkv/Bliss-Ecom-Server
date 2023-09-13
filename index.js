@@ -22,7 +22,7 @@ dbConnect()
 
 app.use(morgan("dev"))
 app.use(cors({
-    origin: ['https://bliss-ecom-server.onrender.com', 'http://localhost:3000'],
+    origin: ['*', '*'],
     allowedHeaders: [
       'X-Requested-With',
       'X-HTTP-Method-Override',
@@ -37,14 +37,14 @@ app.use(cors({
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', [
-      'https://bliss-ecom-server.onrender.com',
-      'http://localhost:3000',
+      '*',
+      '*',
     ]);
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
     next();
   });
-  
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
