@@ -21,26 +21,7 @@ const cors = require('cors')
 dbConnect()
 
 app.use(morgan("dev"))
-app.use(cors({
-    origin: "*",
-    // allowedHeaders: [
-    //   'X-Requested-With',
-    //   'X-HTTP-Method-Override',
-    //   'Content-Type',
-    //   'Accept',
-    //   'Observe',
-    //   'authorization ',
-    // ],
-    // methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    // credentials: true,
-}))
-
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', "*");
-//     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-//     next();
-//   });
+app.use(cors())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -55,7 +36,7 @@ app.use('/api/brand', brandRouter)
 app.use('/api/coupon', couponRouter)
 app.use('/api/color', colorRouter)
 app.use('/api/enquiry', enqRouter)
-app.use('/api/upload', uploadRouter)
+app.use('/api/upload',cors({origin: "*"}), uploadRouter)
 
 app.use(notFound)
 app.use(errorHandler)

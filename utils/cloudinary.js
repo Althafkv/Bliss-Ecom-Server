@@ -10,10 +10,6 @@ const cloudinaryUploadImg = async (fileToUpload) => {
         cloudinary.uploader.upload(fileToUpload, (result) => {
             resolve({
                 url: result.secure_url,
-                method:'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
                 asset_id: result.asset_id,
                 public_id: result.public_id
             }, {
