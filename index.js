@@ -36,7 +36,7 @@ app.use('/api/brand', brandRouter)
 app.use('/api/coupon', couponRouter)
 app.use('/api/color', colorRouter)
 app.use('/api/enquiry', enqRouter)
-app.use('/api/upload',cors({origin: "*"}), uploadRouter)
+app.use('/api/upload', uploadRouter)
 
 app.use(notFound)
 app.use(errorHandler)
