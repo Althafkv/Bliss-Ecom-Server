@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use((req, res, next) => {
-    const allowedOrigins = ['https://bliss-ecom-server.onrender.com', 'http://localhost:5000'];
+    const allowedOrigins = ['https://bliss-ecom-server.onrender.com','http://localhost:3000', 'http://localhost:5000'];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
          res.setHeader('Access-Control-Allow-Origin', origin);
