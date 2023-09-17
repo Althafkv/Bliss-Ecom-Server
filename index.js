@@ -21,25 +21,6 @@ app.use((req,res,next) => {
 
     next()
 })
-
-app.options("*", (req,res) => {
-    console.log("preflight");
-    if(
-        req.headers.origin === "https://badmintown.onrender.com" &&
-        allowMethods.includes(req.headers["access-control-request-method"]) &&
-        allowHeaders.includes(req.headers["access-control-request-headers"])
-    ) {
-        console.log("pass");
-    return res.status(204).send();
-    } else {
-        console.log("fail");
-    }
-})
-
-app.get("/healthz", (req, res) => {
-    console.log("health check is processed");
-    return res.status(204).send();
-  });
  
 require('dotenv').config()
 const PORT = process.env.PORT || 5000
