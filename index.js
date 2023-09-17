@@ -57,6 +57,7 @@ app.use('/api/brand', brandRouter)
 app.use('/api/coupon', couponRouter)
 app.use('/api/color', colorRouter)
 app.use('/api/enquiry', enqRouter)
+app.options('/api/upload', cors())
 app.use('/api/upload', uploadRouter)
 
 app.use(notFound)
