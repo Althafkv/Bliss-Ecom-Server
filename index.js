@@ -5,7 +5,7 @@ const app = express()
 app.use((req,res,next) => {
     res.setHeader(
         "Access-Control-Allow-Origin",
-        "https://comfy-bonbon-ff15f1.netlify.app/"
+        "https://comfy-bonbon-ff15f1.netlify.app"
     )
     res.setHeader(
         "Access-Control-Allow-Methods",
