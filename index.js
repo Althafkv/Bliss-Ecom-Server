@@ -24,10 +24,10 @@ dbConnect()
 app.use(morgan("dev"))
 // app.use(cors())
 app.use(cors({
-    origin: "https://bliss-ecom-server.onrender.com",
     headers: ["Content-Type"],
     credentials: true,
-}));
+}))
+app.options('*', cors())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
