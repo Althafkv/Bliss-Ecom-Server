@@ -1,26 +1,6 @@
 const express = require('express')
 const dbConnect = require('./config/dbConnect')
 const app = express()
-
-// app.use((req,res,next) => {
-//     res.setHeader(
-//         "Access-Control-Allow-Origin",
-//         "https://comfy-bonbon-ff15f1.netlify.app"
-//     )
-//     res.setHeader(
-//         "Access-Control-Allow-Methods",
-//         "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
-//     )
-//     res.setHeader(
-//         "Access-Control-Allow-Headers",
-//         "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
-//     )
-//     res.setHeader("Access-Control-Allow-Credentials", true)
-//     res.setHeader("Access-Control-Allow-Private-Network", true)
-//     res.setHeader("Access-Control-Max-Age", 7200)
-
-//     next()
-// })
  
 require('dotenv').config()
 const PORT = process.env.PORT || 5000
@@ -42,7 +22,12 @@ const cors = require('cors')
 dbConnect()
 
 app.use(morgan("dev"))
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: "https://bliss-ecom-server.onrender.com",
+    headers: ["Content-Type"],
+    credentials: true,
+}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
