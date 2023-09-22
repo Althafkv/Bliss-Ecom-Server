@@ -23,7 +23,7 @@ dbConnect()
 
 app.use(morgan("dev"))
 app.use(cors({
-    origin: ["https://bliss-ecom.netlify.app"],
+    origin: ["https://bliss-ecom.netlify.app","http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
