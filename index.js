@@ -22,11 +22,29 @@ const cors = require('cors')
 dbConnect()
 
 app.use(morgan("dev"))
-app.use(cors())
+app.use(cors({
+    origin: ["https://bliss-ecom.netlify.app"],
+    methods: ["GET", "POST"],
+    credentials: true
+}))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://bliss-ecom.netlify.app"); // the link of my front-end app on Netlify
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+    res.setHeader('content-type', 'application/json');
+    next();
+  });
 
 app.use('/api/user', authRouter)
 app.use('/api/product', productRouter)
