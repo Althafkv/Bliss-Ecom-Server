@@ -23,7 +23,7 @@ dbConnect()
 
 app.use(morgan("dev"))
 app.use(cors({
-    origin: ["https://bliss-ecom.netlify.app","https://storied-sunburst-231272.netlify.app"],
+    origin: ["https://bliss-ecom.netlify.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://bliss-ecom.netlify.app", "https://storied-sunburst-231272.netlify.app");
+    res.setHeader("Access-Control-Allow-Origin", "https://bliss-ecom.netlify.app");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
